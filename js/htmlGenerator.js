@@ -69,12 +69,14 @@ window.onload = function(){
 
 
   addEvent(listLink)
+
   /**
   *  This function itera over an object adding an event Handler "click",
   */
   function addEvent(obj){
     for (var i = 0; i < obj.length; i ++){
-      obj[i].addEventListener("click", function(){
+      obj[i].addEventListener("click", function(evt){
+        evt.preventDefault()
         console.log(this.innertext)
         if (this.innerText !== "="){
           if (this.innerText !== "C"){

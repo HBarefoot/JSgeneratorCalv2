@@ -75,9 +75,7 @@ window.onload = function(){
   */
   function addEvent(obj){
     for (var i = 0; i < obj.length; i ++){
-      obj[i].addEventListener("click", function(evt){
-        evt.preventDefault()
-        console.log(this.innertext)
+      obj[i].addEventListener("click", function(){
         if (this.innerText !== "="){
           if (this.innerText !== "C"){
             appendToScreen(dataToScreen += this.innerText)
@@ -86,6 +84,10 @@ window.onload = function(){
             dataToScreen = ""
             appendToScreen("0")
           }
+        } else if (!(this.innerText = +this.innerText)) {
+          console.log(typeof dataToScreen)
+          dataToScreen = ""
+          appendToScreen("0")
         } else {
           appendToScreen(eval(dataToScreen))
         }

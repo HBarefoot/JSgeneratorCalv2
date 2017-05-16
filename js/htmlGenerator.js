@@ -84,17 +84,18 @@ window.onload = function(){
             dataToScreen = ""
             appendToScreen("0")
           }
-        } else if (!(this.innerText = +this.innerText)) {
-          console.log(typeof dataToScreen)
-          dataToScreen = ""
-          appendToScreen("0")
         } else {
-          appendToScreen(eval(dataToScreen))
+          result = eval(dataToScreen)
+          if (!result || !isFinite(result)){
+            appendToScreen(result = 0)
+            dataToScreen = ""
+          } else {
+            appendToScreen(result)
+          }
         }
       })
     }
   }
-
   //debugin function
   function debug(obj){
     console.log(typeof obj)

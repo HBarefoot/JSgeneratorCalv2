@@ -1,11 +1,11 @@
 window.onload = function(){
   //selecting body element form DOM
-  var body = document.querySelector("body")
+  const body = document.querySelector("body")
 
   //array of string with numbers and symbols
-  var data = ['9','8','7','+','6','5','4',
+  const data = ['9','8','7','+','6','5','4',
   '-','3','2','1','%','.','0','/','*','C','=']
-  var html = ''
+  let html = ''
 
 
   //Pinting calculator
@@ -26,7 +26,7 @@ window.onload = function(){
         html += '<div class="btn equal symbol"><a href="#">' + arr[i] + '</a></div>'
       }
       if (data[i] === "+" || data[i] === "-" || data[i] === "%" || data[i] === "*"){
-         html += '</div><div class="number">'
+        html += '</div><div class="number">'
       }
     }
     html += '</div>'
@@ -60,12 +60,12 @@ window.onload = function(){
     }
   }
 
-// Calculation formula
+  // Calculation formula
 
-  var listLink = document.querySelectorAll(".btn")
-  var outPut = document.querySelector("#screen")
-  var dataToScreen = ""
-  var result
+  const listLink = document.querySelectorAll(".btn")
+  const outPut = document.querySelector("#screen")
+  let dataToScreen = ""
+  let result
 
 
   addEvent(listLink)
@@ -79,10 +79,11 @@ window.onload = function(){
         if (this.innerText !== "="){
           if (this.innerText !== "C"){
             appendToScreen(dataToScreen += this.innerText)
-            console.log(dataToScreen);
+            styleCSS(dataToScreen)
           } else {
             dataToScreen = ""
             appendToScreen("0")
+            outPut.style = "font-size: 70px;"
           }
         } else {
           result = eval(dataToScreen)
@@ -96,6 +97,7 @@ window.onload = function(){
       })
     }
   }
+
   //debugin function
   function debug(obj){
     console.log(typeof obj)
@@ -105,5 +107,26 @@ window.onload = function(){
   //append data to screen
   function appendToScreen(obj){
     outPut.innerText = obj
+  }
+
+  //Changin style
+  function styleCSS(obj){
+    // console.log(obj.length)
+    switch (obj.length) {
+      case 9:
+        outPut.style = "font-size: 35px;"
+        break;
+        case 17:
+          dataToScreen += "\n"
+          break;
+          case 36:
+            alert("No more number for you !")
+            appendToScreen("0")
+             dataToScreen = ""
+             outPut.style = "font-size: 70px;"
+            break;
+      default:
+
+    }
   }
 }

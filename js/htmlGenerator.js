@@ -114,17 +114,17 @@ window.onload = function(){
     // console.log(obj.length)
     switch (obj.length) {
       case 9:
-        outPut.style = "font-size: 35px;"
-        break;
-        case 17:
-          dataToScreen += "\n"
-          break;
-          case 36:
-            alert("No more number for you !")
-            appendToScreen("0")
-             dataToScreen = ""
-             outPut.style = "font-size: 70px;"
-            break;
+      outPut.style = "font-size: 35px;"
+      break;
+      case 17:
+      dataToScreen += "\n"
+      break;
+      case 36:
+      alert("No more number for you !")
+      appendToScreen("0")
+      dataToScreen = ""
+      outPut.style = "font-size: 70px;"
+      break;
       default:
 
     }

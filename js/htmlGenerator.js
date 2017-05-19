@@ -83,7 +83,7 @@ window.onload = function(){
           } else {
             dataToScreen = ""
             appendToScreen("0")
-            outPut.style = "font-size: 70px;"
+            $(outPut).css({"font-size": "70px"})
           }
         } else {
           result = eval(dataToScreen)
@@ -113,17 +113,21 @@ window.onload = function(){
   function styleCSS(obj){
     // console.log(obj.length)
     switch (obj.length) {
-      case 9:
-      outPut.style = "font-size: 35px;"
+      case 8:
+      $(outPut).css({
+        "font-size": "35px",
+        "line-height": "100%",
+        "letter-spacing": "2px"
+      })
       break;
-      case 17:
+      case 15:
       dataToScreen += "\n"
       break;
-      case 36:
+      case 32:
       alert("No more number for you !")
       appendToScreen("0")
       dataToScreen = ""
-      outPut.style = "font-size: 70px;"
+      $(outPut).css({"font-size": "70px"})
       break;
       default:
 
